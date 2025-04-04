@@ -41,7 +41,7 @@ public class EmployeePensionApp {
     }
 
     public static void quarterlyEnrollee(Employee[] employees) {
-        LocalDate quarterStart = LocalDate.of(2025, 3, 31);
+        LocalDate quarterStart = LocalDate.of(2025, 6, 30);
         LocalDate quarterEnd = quarterStart.plusMonths(3);
         if (employees != null) {
             List<Employee> employeeList = Arrays.stream(employees)
