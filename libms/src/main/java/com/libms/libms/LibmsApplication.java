@@ -2,6 +2,7 @@ package com.libms.libms;
 
 import com.libms.libms.dto.request.AddressRequestDto;
 import com.libms.libms.dto.request.PublisherRequestDto;
+import com.libms.libms.service.BookService;
 import com.libms.libms.service.PublisherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 @RequiredArgsConstructor
 public class LibmsApplication {
     private final PublisherService publisherService;
+    private final BookService bookService;
 
     public static void main(String[] args) {
         SpringApplication.run(LibmsApplication.class, args);
@@ -22,6 +24,7 @@ public class LibmsApplication {
     @Bean
     CommandLineRunner commandLineRunner(){
         return args -> {
+            // New Publisher
             PublisherRequestDto publisherRequestDto = new PublisherRequestDto(
                     "Apress",
                     new AddressRequestDto(
@@ -33,21 +36,7 @@ public class LibmsApplication {
                     )
             );
             System.out.println(publisherService.createPublisher(publisherRequestDto));
-//            System.out.println(publisherService.findAllPublishers());
-            System.out.println("hello");
-            System.out.println(publisherService.findPublisherByName("Apress"));
-            PublisherRequestDto publisherRequestDto1 = new PublisherRequestDto(
-                    "Npress",
-                    new AddressRequestDto(
-                            "11A",
-                            "LLC One New York Plaza",
-                            "New York",
-                            "NY",
-                            "1562"
-                    )
-            );
-            System.out.println(publisherService.updatePublisher("Apress",publisherRequestDto1));
-//            publisherService.deletePublisher("Npress");
+
         };
     }
 

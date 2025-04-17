@@ -7,6 +7,6 @@ public record BookResponseDto(
         String title,
         String isbn,
         List<AuthorResponseDto> authorResponseDtos,
-        List<PublisherResponseDto> publisherResponseDtos
+        PublisherResponseDto publisherResponseDto
 ) {
 }
